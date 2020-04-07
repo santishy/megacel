@@ -262,6 +262,43 @@
 								</div>
 							</div>
 						</div>
+            <div class="row">
+  						<div class="form-group">
+  							<label for="calcas" class="col-md-4 control-label ">Batería en buen estado?</label>
+  							<div class="col-md-1">
+  								<div class="radio">
+  								  <label>
+  								    <input type="radio" name="calcas" id="blankRadio1" value="SI" aria-label="...">
+  								    Si
+  								  </label>
+  								</div>
+  							</div>
+  							<div class="col-md-1">
+  								<div class="radio">
+  								  <label>
+  								    <input type="radio" name="bateria" id="blankRadio1" value="NO" aria-label="...">
+  								    No
+  								  </label>
+  								</div>
+  							</div>
+  							<div class="col-md-2">
+  								<div class="radio">
+  								  <label>
+  								    <input type="radio" name="bateria" id="blankRadio1" value="NO CONTIENE" aria-label="...">
+  								    No contiene
+  								  </label>
+  								</div>
+  							</div>
+  							<div class="col-md-3">
+  								<div class="radio">
+  								  <label>
+  								    <input type="radio" name="bateria" id="blankRadio1" value="NO SE PUEDE VERIFICAR" aria-label="...">
+  								    No se puede verificar
+  								  </label>
+  								</div>
+  							</div>
+  						</div>
+  					</div><!--row-->
 					<div class="row">
 						<div class="form-group">
 							<label for="calcas" class="col-md-4 control-label ">Batería en buen estado?</label>
@@ -298,12 +335,6 @@
 								</div>
 							</div>
 						</div>
-						<!--div class="form-group">
-							<label for="calcas" class="col-md-2 control-label ">Calcomonias</label>
-							<div class="col-md-9">
-								<input type="text" name="calcas" id="calcas" class="form-control" value="No tiene">
-							</div>
-						</div-->
 					</div><!--row-->
 					<!-- <div class="row">
 						<div class="form-group">
