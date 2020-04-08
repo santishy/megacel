@@ -264,11 +264,11 @@
 						</div>
             <div class="row">
   						<div class="form-group">
-  							<label for="calcas" class="col-md-4 control-label ">Batería en buen estado?</label>
+  							<label for="calcas" class="col-md-4 control-label ">Contiene batería?</label>
   							<div class="col-md-1">
   								<div class="radio">
   								  <label>
-  								    <input type="radio" name="calcas" id="blankRadio1" value="SI" aria-label="...">
+  								    <input type="radio" name="contiene_bateria" id="blankRadio1" value="SI" aria-label="...">
   								    Si
   								  </label>
   								</div>
@@ -276,23 +276,15 @@
   							<div class="col-md-1">
   								<div class="radio">
   								  <label>
-  								    <input type="radio" name="bateria" id="blankRadio1" value="NO" aria-label="...">
+  								    <input type="radio" name="contiene_bateria" id="blankRadio1" value="NO" aria-label="...">
   								    No
-  								  </label>
-  								</div>
-  							</div>
-  							<div class="col-md-2">
-  								<div class="radio">
-  								  <label>
-  								    <input type="radio" name="bateria" id="blankRadio1" value="NO CONTIENE" aria-label="...">
-  								    No contiene
   								  </label>
   								</div>
   							</div>
   							<div class="col-md-3">
   								<div class="radio">
   								  <label>
-  								    <input type="radio" name="bateria" id="blankRadio1" value="NO SE PUEDE VERIFICAR" aria-label="...">
+  								    <input type="radio" name="contiene_bateria" id="blankRadio1" value="NO SE PUEDE VERIFICAR" aria-label="...">
   								    No se puede verificar
   								  </label>
   								</div>
@@ -318,14 +310,6 @@
 								  </label>
 								</div>
 							</div>
-							<div class="col-md-2">
-								<div class="radio">
-								  <label>
-								    <input type="radio" name="calcas" id="blankRadio1" value="NO CONTIENE" aria-label="...">
-								    No contiene
-								  </label>
-								</div>
-							</div>
 							<div class="col-md-3">
 								<div class="radio">
 								  <label>
@@ -335,43 +319,7 @@
 								</div>
 							</div>
 						</div>
-					</div><!--row-->
-					<!-- <div class="row">
-						<div class="form-group">
-							<label for="botones" class="col-md-4 control-label ">Estado botones</label>
-							<div class="col-md-7">
-								<textarea class="form-control" name="botones"></textarea>
-							</div>
-						</div>
-					</div> -->
-					<!-- <div class="row">
-						<div class="form-group">
-							<label for="golpes" class="col-md-4 control-label ">El dispositivo enciende?</label>
-							<div class="col-md-1">
-								<div class="radio">
-								  <label>
-								    <input type="radio" name="golpes" id="blankRadio1" value="SI" aria-label="...">
-								    Si
-								  </label>
-								</div>
-							</div>
-							<div class="col-md-1">
-								<div class="radio">
-								  <label>
-								    <input type="radio" name="golpes" id="blankRadio1" value="NO" aria-label="...">
-								    No
-								  </label>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="radio">
-								  <label>
-								    <input type="radio" name="golpes" id="blankRadio1" value="NO SE PUEDO VERIFICAR" aria-label="...">
-								    No se puedo verificar
-								  </label>
-								</div>
-							</div>
-						</div> -->
+					</div>
 						<div class="form-group">
 							<label for="chip" class="col-md-4 control-label ">Contiene chip?</label>
 							<div class="col-md-1">
