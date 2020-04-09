@@ -98,7 +98,12 @@ class ServicioFolio extends CI_Controller {
 			$falla=$row->falla;
 			$marca=$row->marca;
 			$color=$row->color;
-			// $botones=$row->botones;
+			$botones=$row->botones;
+			$tapa = $row->tapa;
+			$enciende = $row->enciende;
+			$mojado = $row->mojado;
+			$contiene_bateria = $row->contiene_bateria;
+			$marco = $row->marco;
 			$modelo=$row->modelo;
 			$solucion=$row->solucion;
 			$total=$row->total;
@@ -184,7 +189,15 @@ class ServicioFolio extends CI_Controller {
 		$pdf->SetFont('Arial','',8);
 		$pdf->Cell(0,6,$contra,0,1,'L');
 		$pdf->Ln(1);
-		$pdf->SetFont('Arial','B',8);
+		$pdf->SetFont('Arial','B',14);
+		$pdf->Cell(0,1,'*     *     *',0,1,'C');
+		$pdf->Ln(5);
+		$pdf->SetFont('Arial','B',14);
+		$pdf->Cell(0,1,'*     *     *',0,1,'C');
+		$pdf->Ln(5);
+		$pdf->SetFont('Arial','B',14);
+		$pdf->Cell(0,1,'*     *     *',0,1,'C');
+		$pdf->Ln(5);
 		if($edo=="Terminado" || $edo=="Entregado")
 		{
 			//$pdf->Ln(10);
@@ -211,6 +224,7 @@ class ServicioFolio extends CI_Controller {
 		{
 			$pdf->Cell(0,3,'FALLA:',0,1,'L');
 			$pdf->SetFont('Arial','',8);
+			$pdf->Ln();
 			$pdf->MultiCell(0,3,utf8_decode($falla),0,'L');
 		}
 		$pdf->SetFont('Arial','B',9);
@@ -223,14 +237,39 @@ class ServicioFolio extends CI_Controller {
 		$pdf->Cell(0,4,'Contiene Memoria:',0,1,'L');
 		$pdf->SetFont('Arial','B',8);
 		$pdf->Cell(0,4,$memoria,0,1,'L');
+
 		$pdf->SetFont('Arial','B',8);
 		$pdf->Cell(0,4,'Contiene Bateria:',0,1,'L');
+		$pdf->SetFont('Arial','B',8);
+		$pdf->Cell(0,4,$contiene_bateria,0,1,'L');
+		$pdf->SetFont('Arial','B',8);
+		$pdf->Cell(0,4,'Estado Bateria:',0,1,'L');
 		$pdf->SetFont('Arial','B',8);
 		$pdf->Cell(0,4,$bateria,0,1,'L');
 		$pdf->SetFont('Arial','B',8);
 		$pdf->Cell(0,4,'Estado de la Carcasa:',0,1,'L');
 		$pdf->SetFont('Arial','B',8);
-		$pdf->Cell(0,5,$carcasa,'B',1,'L');
+		$pdf->Cell(0,5,$carcasa,0,1,'L');
+		$pdf->SetFont('Arial','B',8);
+		$pdf->Cell(0,4,'Contiene Botones:',0,1,'L');
+		$pdf->SetFont('Arial','B',8);
+		$pdf->Cell(0,4,$botones,0,1,'L');
+		$pdf->SetFont('Arial','B',8);
+		$pdf->Cell(0,4,'Equipo Mojado?:',0,1,'L');
+		$pdf->SetFont('Arial','B',8);
+		$pdf->Cell(0,4,$mojado,0,1,'L');
+		$pdf->SetFont('Arial','B',8);
+		$pdf->Cell(0,4,'Equipo Enciende?:',0,1,'L');
+		$pdf->SetFont('Arial','B',8);
+		$pdf->Cell(0,4,$enciende,0,1,'L');
+		$pdf->SetFont('Arial','B',8);
+		$pdf->Cell(0,4,'Estado del Marco?',0,1,'L');
+		$pdf->SetFont('Arial','B',8);
+		$pdf->Cell(0,4,$marco,0,1,'L');
+		$pdf->SetFont('Arial','B',8);
+		$pdf->Cell(0,4,'Contiene tapa?:',0,1,'L');
+		$pdf->SetFont('Arial','B',8);
+		$pdf->Cell(0,4,$tapa,'B',1,'L');
 		if($edo=="pendiente")
 		{
 			$pdf->Ln(5);
@@ -806,7 +845,6 @@ if(strlen($this->session->userdata('idusuc2')==0))
 		}
 		if($ban==1)
 		{
-			//$query="puto";
 			$query=$this->ModelServicio->modiServicio($arr);
 			echo $query;
 		}
