@@ -378,7 +378,7 @@ class ServicioFolio extends CI_Controller {
 		$data['tapa']=$this->input->post('tapa');
 		$data['falla']=$this->input->post('falla');
 		$data['cables']=$this->input->post('cables');
-		$data['marco']=$this->input->post('discos');
+		$data['marco']=$this->input->post('marco');
 		$data['accesorios']=$this->input->post('accesorios');
 		$data['calcas']=$this->input->post('calcas');
 		$data['botones']=$this->input->post('botones');

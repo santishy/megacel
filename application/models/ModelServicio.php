@@ -56,7 +56,7 @@ class ModelServicio extends CI_Model {
 		$query=$this->db->query('call addServicio('.$data['folio'].','.$data['idEq'].',"'.$data['tipo'].'",
 		"'.$data['falla'].'","'.$data['cables'].'","'.$data['accesorios'].'","'.$data['calcas'].'","'.$data['usuario'].'",
 		"'.$data['chip'].'","'.$data['memoria'].'","'.$data['cotizacion'].'","'.$data['marco'].'",
-		"'.$data['botones'].'","'.$data['tapa'].'","'.$data['enciende'].'","'.$data['mojado'].'",@ban);');
+		"'.$data['botones'].'","'.$data['tapa'].'","'.$data['enciende'].'","'.$data['mojado'].'","'.$data['contiene_bateria'].'",@ban);');
 
 		//$query->next_result();
 

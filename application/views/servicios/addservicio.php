@@ -479,11 +479,11 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="memoria" class="col-md-4 control-label ">Contiene tapa?</label>
+              <label for="tapa" class="col-md-4 control-label ">Contiene tapa?</label>
               <div class="col-md-1">
                 <div class="radio">
                   <label>
-                    <input type="radio" name="memoria" id="blankRadio1" value="SI" aria-label="...">
+                    <input type="radio" name="tapa" id="blankRadio1" value="SI" aria-label="...">
                     Si
                   </label>
                 </div>
@@ -491,7 +491,7 @@
               <div class="col-md-1">
                 <div class="radio">
                   <label>
-                    <input type="radio" name="memoria" id="blankRadio1" value="NO" aria-label="...">
+                    <input type="radio" name="tapa" id="blankRadio1" value="NO" aria-label="...">
                     No
                   </label>
                 </div>
@@ -499,7 +499,7 @@
               <div class="col-md-1">
                 <div class="radio">
                   <label>
-                    <input type="radio" name="memoria" id="blankRadio1" value="MALTRATADA" aria-label="...">
+                    <input type="radio" name="tapa" id="blankRadio1" value="MALTRATADA" aria-label="...">
                     Maltratada
                   </label>
                 </div>
