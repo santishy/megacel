@@ -374,6 +374,137 @@
 								</div>
 							</div>
 						</div>
+            <div class="form-group">
+              <label for="memoria" class="col-md-4 control-label ">Estado del marco?</label>
+              <div class="col-md-1">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="marco" id="blankRadio1" value="BUENO" aria-label="...">
+                    Bueno
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="marco" id="blankRadio1" value="MALTRATADO" aria-label="...">
+                    Maltratado
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="marco" id="blankRadio1" value="ROTO" aria-label="...">
+                    Roto
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="memoria" class="col-md-4 control-label ">Contiene memoria?</label>
+              <div class="col-md-1">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="memoria" id="blankRadio1" value="SI" aria-label="...">
+                    Si
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="memoria" id="blankRadio1" value="NO" aria-label="...">
+                    No
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="memoria" id="blankRadio1" value="NO SE PUEDE VERIFICAR" aria-label="...">
+                    No se puede verificar
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-1">
+
+              </div>
+              <div class="col-md-3 text-right">
+                  <label for="">¿Faltan Botones?</label>
+              </div>
+              <div class="col-md-6">
+                <input type="text" name="botones"  class="form-control" value="">
+              </div>
+
+            </div>
+            <div class="form-group">
+              <label for="memoria" class="col-md-4 control-label ">Enciende?</label>
+              <div class="col-md-1">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="enciende" id="blankRadio1" value="SI" aria-label="...">
+                    Si
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="enciende" id="blankRadio1" value="NO" aria-label="...">
+                    No
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="memoria" class="col-md-4 control-label ">Viene mojado?</label>
+              <div class="col-md-1">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="mojado" id="blankRadio1" value="SI" aria-label="...">
+                    Si
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="mojado" id="blankRadio1" value="NO" aria-label="...">
+                    No
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="memoria" class="col-md-4 control-label ">Contiene tapa?</label>
+              <div class="col-md-1">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="memoria" id="blankRadio1" value="SI" aria-label="...">
+                    Si
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="memoria" id="blankRadio1" value="NO" aria-label="...">
+                    No
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="memoria" id="blankRadio1" value="MALTRATADA" aria-label="...">
+                    Maltratada
+                  </label>
+                </div>
+              </div>
+            </div>
 						<div class="form-group" id="rutaPass" data-ruta="<?=base_url()?>serviciofolio/comprobarPass">
 							<label for="pass" class="col-md-3 control-label ">Contraseña</label>
 							<div class="col-md-8">
@@ -381,12 +512,7 @@
 								<input type="hidden" name="usuario" id="usuario">
 							</div>
 						</div>
-						<!--div class="form-group">
-							<label for="golpes" class="col-md-2 control-label ">Golpes</label>
-							<div class="col-md-9">
-								<input type="text" name="golpes" id="golpes" class="form-control" value="No tiene">
-							</div>
-						</div-->
+
 					</div><!--row-->
 					<div class="row">
 						<div class="col-md-4">

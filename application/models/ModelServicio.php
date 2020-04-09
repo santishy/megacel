@@ -54,7 +54,9 @@ class ModelServicio extends CI_Model {
 	{
 
 		$query=$this->db->query('call addServicio('.$data['folio'].','.$data['idEq'].',"'.$data['tipo'].'",
-		"'.$data['falla'].'","'.$data['cables'].'","'.$data['accesorios'].'","'.$data['calcas'].'","'.$data['usuario'].'","'.$data['chip'].'","'.$data['memoria'].'","'.$data['cotizacion'].'",@ban);');
+		"'.$data['falla'].'","'.$data['cables'].'","'.$data['accesorios'].'","'.$data['calcas'].'","'.$data['usuario'].'",
+		"'.$data['chip'].'","'.$data['memoria'].'","'.$data['cotizacion'].'","'.$data['marco'].'",
+		"'.$data['botones'].'","'.$data['tapa'].'","'.$data['enciende'].'","'.$data['mojado'].'",@ban);');
 
 		//$query->next_result();
 
@@ -239,9 +241,9 @@ class ModelServicio extends CI_Model {
 
 		$query=$this->db->query('call getServicioFolio('.$folio.');');
 
-		//$query->next_result();		
+		//$query->next_result();
 		$this->db->close();
-		return $query;	
+		return $query;
 
 	}
 
@@ -255,7 +257,7 @@ class ModelServicio extends CI_Model {
 
 		//$query->next_result();
 		$this->db->close();
-		return $query;	
+		return $query;
 
 	}
 
@@ -355,7 +357,7 @@ class ModelServicio extends CI_Model {
 	}
 	function cambiarFechaSalida($data,$id)
 	{
-		
+
 		$query=$this->db->query('update folios set fecha_salida="'.$data['fecha_salida'].'" where folio='.$id);
 		return $query;
 	}
@@ -553,7 +555,7 @@ class ModelServicio extends CI_Model {
 
 		$num=0;
 
-		foreach ($query->result() as $row) 
+		foreach ($query->result() as $row)
 
 		{
 
@@ -592,6 +594,3 @@ class ModelServicio extends CI_Model {
 	}
 
 }
-
-
-

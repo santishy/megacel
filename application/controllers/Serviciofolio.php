@@ -16,11 +16,11 @@ class ServicioFolio extends CI_Controller {
 	}
 	public function index()
 	{
-			
+
 	}
 	public function tiempo()
 	{
-		
+
 	}
 	function comprobarPass()
 	{
@@ -178,7 +178,7 @@ class ServicioFolio extends CI_Controller {
 		$pdf->SetFont('Arial','',8);
 		$pdf->Cell(0,6,$telefono,0,1,'L');
 		$pdf->Ln(1);
-		
+
 		$pdf->SetFont('Arial','B',8);
 		$pdf->Cell(0,1,'Password:',0,1,'L');
 		$pdf->SetFont('Arial','',8);
@@ -270,7 +270,7 @@ class ServicioFolio extends CI_Controller {
 			$pdf->Ln(3);
 			$pdf->SetFont('Arial','B',7);
 			//$pdf->Cell(5);
-			$pdf->MultiCell(0,3,strtoupper(utf8_decode($mensajet)),'BT','L');	
+			$pdf->MultiCell(0,3,strtoupper(utf8_decode($mensajet)),'BT','L');
 		}
 		else
 		{
@@ -307,7 +307,7 @@ class ServicioFolio extends CI_Controller {
 		$folio=$this->input->post('id_folio');
 		$data['ubicacion']=$this->input->post('usuario');
 		date_default_timezone_set('America/Monterrey');
-		$data['fechaubicacion']=date('Y-m-d H:i:s');  
+		$data['fechaubicacion']=date('Y-m-d H:i:s');
 		if(strlen($folio)>0 && strlen($data['ubicacion'])>0)
 			$query=$this->ModelServicio->modiUbicacion($folio,$data);
 		else
@@ -325,7 +325,7 @@ class ServicioFolio extends CI_Controller {
 		$data['fecha']=$this->input->post('fecha');
 		//$data['idsuc']=$this->session->userdata['idsuc'];
 		$ban=false;
-		foreach ($data as $key => $value) 
+		foreach ($data as $key => $value)
 		{
 				if(!empty($value))
 					$ban=true;
@@ -344,7 +344,7 @@ class ServicioFolio extends CI_Controller {
 				$query=$this->ModelServicio->getFolio();
 				if($query->num_rows()>0)
 				{
-					foreach ($query->result() as $row) 
+					foreach ($query->result() as $row)
 					{
 						$id=$row->folio;
 
@@ -361,10 +361,10 @@ class ServicioFolio extends CI_Controller {
 					echo json_encode($vec);
 				}
 			}
-			else 
+			else
 				echo json_encode($vec);
 		}
-		else 
+		else
 			echo json_encode($vec);
 	}
 	/*************************Servicio*****************************************************/
@@ -373,23 +373,23 @@ class ServicioFolio extends CI_Controller {
 		$data['folio']=$this->input->post('sfolio');
 		$data['idEq']=$this->input->post('sidEq');
 		$data['tipo']=$this->input->post('tipo');
-		//$data['solucion']=$this->input->post('solucion');
-		//$data['estado']=$this->input->post('estado');
-		//$data['tecnico']=$this->input->post('tecnico');
+		$data['enciende']=$this->input->post('enciende');
+		$data['mojado']=$this->input->post('mojado');
+		$data['tapa']=$this->input->post('tapa');
 		$data['falla']=$this->input->post('falla');
 		$data['cables']=$this->input->post('cables');
-		// $data['discos']=$this->input->post('discos');
+		$data['marco']=$this->input->post('discos');
 		$data['accesorios']=$this->input->post('accesorios');
 		$data['calcas']=$this->input->post('calcas');
-		// $data['botones']=$this->input->post('botones');
-		// $data['golpes']=$this->input->post('golpes');
+		$data['botones']=$this->input->post('botones');
+		$data['contiene_bateria']=$this->input->post('contiene_bateria');
 		$data['chip']=$this->input->post('chip');
 		$data['memoria']=$this->input->post('memoria');
 		$data['cotizacion']=$this->input->post('cotizacion');
 		if(strlen($this->input->post('usuario'))>0)
 			$data['usuario']=$this->input->post('usuario');
 		$ban=true;
-		foreach ($data as $key => $value) 
+		foreach ($data as $key => $value)
 		{
 				if(strlen($value)==0)
 				{
@@ -397,7 +397,7 @@ class ServicioFolio extends CI_Controller {
 					break;
 				}
 		}
-		
+
 		if($ban)
 		{
 			$query=$this->ModelServicio->addDetServicio($data);
@@ -428,13 +428,13 @@ class ServicioFolio extends CI_Controller {
 			$query=$this->ModelServicio->getServicioFolio($clave);
 			$this->mostrarBusqueda($query);
 		}
-		else 
+		else
 			if(preg_match('|^[a-zA-Z]+(\s*[a-zA-Z]*)*[a-zA-Z]+$|',$clave))
 			{
 				$query=$this->ModelServicio->getServicioNombre($temp);
 				$this->mostrarBusqueda($query);
 			}
-				
+
 			else
 				$this->mostrarServicios();
 	}
@@ -448,13 +448,13 @@ class ServicioFolio extends CI_Controller {
 			$query=$this->ModelServicio->getServicioFolioEdo($clave,$edo);
 			$this->mostrarBusqueda($query);
 		}
-		else 
+		else
 			if(preg_match('|^[a-zA-Z]+(\s*[a-zA-Z]*)*[a-zA-Z]+$|',$clave))
 			{
 				$query=$this->ModelServicio->getServicioNombreEdo($temp,$edo);
 				$this->mostrarBusqueda($query);
 			}
-				
+
 			else
 				$this->mostrarServicios();
 	}
@@ -473,11 +473,11 @@ class ServicioFolio extends CI_Controller {
 		$data['urgente']=$this->ModelServicio->getNumUrgentes();
 		$data['tipo']=$this->session->userdata('tipo');
 		$this->load->view('templates/header',$data);
-		
-			$this->load->view('servicios/mostrarservicio');		
+
+			$this->load->view('servicios/mostrarservicio');
 	}
 	public function consultaGeneral()
-	{	
+	{
 		if(!$this->session->userdata('tipo'))
 			redirect(base_url().'login');
 		$id=$this->input->post('lstSuc');
@@ -485,7 +485,7 @@ class ServicioFolio extends CI_Controller {
 				$this->session->set_userdata('idsuc2',$this->session->userdata('idsuc')); // valor por default (ingresar suc)
 			else
 				$this->session->set_userdata('idsuc2',$id);
-		if(!$this->session->userdata('estado'))	
+		if(!$this->session->userdata('estado'))
 			$this->session->set_userdata('estado','pendiente');
 
 		$this->mostrarServicios();
@@ -495,7 +495,7 @@ class ServicioFolio extends CI_Controller {
 		if(!$this->session->userdata('tipo'))
 			redirect(base_url().'login');
 		$uri_segment=3;
-		$offset=$this->uri->segment($uri_segment);	
+		$offset=$this->uri->segment($uri_segment);
 		if(empty($offset))
 			$offset=0;
 		$config['base_url']=base_url().'servicioFolio/mostrarServicios';
@@ -528,7 +528,7 @@ class ServicioFolio extends CI_Controller {
 		//if($this->session->userdata('tipo')==2)
 		//	$this->load->view('servicios/mostrarservicioempleada');
 	//	else
-			$this->load->view('servicios/mostrarservicio');		
+			$this->load->view('servicios/mostrarservicio');
 	}
 	function mostrarServicios($offset=0)
 	{
@@ -537,7 +537,7 @@ class ServicioFolio extends CI_Controller {
 if(strlen($this->session->userdata('idusuc2')==0))
 			$this->session->set_userdata('idsuc2',$this->session->userdata('idsuc'));
 		$uri_segment=3;
-		$offset=$this->uri->segment($uri_segment);	
+		$offset=$this->uri->segment($uri_segment);
 		if(empty($offset))
 			$offset=0;
 		$config['base_url']=base_url().'serviciofolio/mostrarServicios';
@@ -571,17 +571,17 @@ if(strlen($this->session->userdata('idusuc2')==0))
 		//if($this->session->userdata('tipo')==2)
 		//	$this->load->view('servicios/mostrarservicioempleada');
 	//	else
-		$this->load->view('servicios/mostrarservicio');	
+		$this->load->view('servicios/mostrarservicio');
 	}
 	function expirados()
 	{
 		date_default_timezone_set('America/Monterrey');
-		$data['fechaLimite']=date('Y-m-d',strtotime('-1 month'));  
+		$data['fechaLimite']=date('Y-m-d',strtotime('-1 month'));
 		echo $data['fechaLimite'];
 		if(!$this->session->userdata('tipo'))
 			redirect(base_url().'login');
 		$uri_segment=3;
-		$offset=$this->uri->segment($uri_segment);	
+		$offset=$this->uri->segment($uri_segment);
 		if(empty($offset))
 			$offset=0;
 		$config['base_url']=base_url().'serviciofolio/expirados';
@@ -611,7 +611,7 @@ if(strlen($this->session->userdata('idusuc2')==0))
 		$data['ban']=0;
 		$data['tipo']=$this->session->userdata('tipo');
 		$this->load->view('templates/header',$data);
-		$this->load->view('servicios/mostrarservicio');	
+		$this->load->view('servicios/mostrarservicio');
 	}
 	function cargarVariable()
 	{
@@ -630,7 +630,7 @@ if(strlen($this->session->userdata('idusuc2')==0))
 		$data['usuario']=$this->session->userdata('nombre');
 		$data['nomSuc']=strtoupper(utf8_decode($this->session->userdata('nomSuc')));
 		$this->load->view('templates/header',$data);
-		$this->load->view('servicios/mensajeCli',$msg);	
+		$this->load->view('servicios/mensajeCli',$msg);
 	}
 	function mostrarSalida($offset=0)
 	{
@@ -639,7 +639,7 @@ if(strlen($this->session->userdata('idusuc2')==0))
 		/*if($this->session->userdata('uri'))
 			$this->session->unset_userdata('uri');
 		$uri_segment=3;
-		$offset=$this->uri->segment($uri_segment);	
+		$offset=$this->uri->segment($uri_segment);
 		if(empty($offset))
 			$offset=0;
 		$config['base_url']=base_url().'servicioFolio/mostrarSalida';
@@ -664,7 +664,7 @@ if(strlen($this->session->userdata('idusuc2')==0))
 		$data['usuario']=$this->session->userdata('nombre');
 		$data['nomSuc']=strtoupper(utf8_decode($this->session->userdata('nomSuc')));
 		$this->load->view('templates/header',$data);
-		$this->load->view('servicios/mostrarsalida');	
+		$this->load->view('servicios/mostrarsalida');
 	}
 	function subirArchivo()
 	{
@@ -768,7 +768,7 @@ if(strlen($this->session->userdata('idusuc2')==0))
 							$this->ModelServicio->cambiarFechaSalida($v,$this->session->userdata('folio'));
 						}
 					$query=$this->ModelServicio->getServicioFolio($this->session->userdata('folio'));
-					$this->mostrarBusqueda($query);		
+					$this->mostrarBusqueda($query);
 					$this->session->unset_userdata('folio');
 					$this->session->unset_userdata('pag');
 					//redirect("serviciofolio/mostrarServicios/".$pag);
@@ -802,7 +802,7 @@ if(strlen($this->session->userdata('idusuc2')==0))
 			{
 				$ban=0;
 				break;
-			}	
+			}
 		}
 		if($ban==1)
 		{
@@ -830,14 +830,14 @@ if(strlen($this->session->userdata('idusuc2')==0))
 		$this->form_validation->set_rules('fin','La fecha hasta:','required');
 		if($this->form_validation->run()===FALSE)
 		{
-			date_default_timezone_set('America/Monterrey');	
+			date_default_timezone_set('America/Monterrey');
 			$data['query']=$this->ModelServicio->getSucursales();
 			$data['title']="Corte";
 			$data['ruta']="fechas.js";
 			$data['usuario']=$this->session->userdata('nombre');
 			$data['nomSuc']=strtoupper(utf8_decode($this->session->userdata('nomSuc')));
 			$this->load->view('templates/header',$data);
-			$this->load->view('servicios/fechas');	
+			$this->load->view('servicios/fechas');
 		}
 		else
 		{
@@ -846,7 +846,7 @@ if(strlen($this->session->userdata('idusuc2')==0))
 			$this->session->set_userdata('inicio',$this->input->post('inicio'));
 			$this->session->set_userdata('fin',$this->input->post('fin'));
 			$this->corte();
-		}	
+		}
 	}
 	function corte($offset=0)
 	{
@@ -854,7 +854,7 @@ if(strlen($this->session->userdata('idusuc2')==0))
 		if(!$this->session->userdata('tipo'))
 			redirect(base_url().'login');
 		$uri_segment=3;
-		$offset=$this->uri->segment($uri_segment);	
+		$offset=$this->uri->segment($uri_segment);
 		if(empty($offset))
 			$offset=0;
 		date_default_timezone_set('America/Monterrey');
@@ -969,7 +969,7 @@ if(strlen($this->session->userdata('idusuc2')==0))
 		// $folio=$this->input->post('folio');
 		// $status=$this->input->post('edo');
 		// $query=$this->ModelServicio->getEstado($folio);
-		// foreach ($query->result() as $row) 
+		// foreach ($query->result() as $row)
 		// {
 		// 	$edo=$row->estadogeneral;
 		// }
@@ -979,7 +979,7 @@ if(strlen($this->session->userdata('idusuc2')==0))
 		// 	$data['estadogeneral']=$this->input->post('edo');
 		// 	//$data['fecha']=date("Y-m-d");
 		// 	date_default_timezone_set('America/Monterrey');
-		// 	$data['fecha_salida']=date('Y-m-d H:i:s'); 
+		// 	$data['fecha_salida']=date('Y-m-d H:i:s');
 		// 	$cont=$this->input->post('cont');
 		// 	$this->ModelServicio->cambiarEntregado($data,$folio);
 		// }
@@ -1009,7 +1009,7 @@ if(strlen($this->session->userdata('idusuc2')==0))
 		if($ban)
 		{
 			date_default_timezone_set('America/Monterrey');
-			$data['fecha_comentario']=date('Y-m-d H:i:s');  
+			$data['fecha_comentario']=date('Y-m-d H:i:s');
 			$query=$this->ModelServicio->addComment($data);
 			echo $query;
 		}
