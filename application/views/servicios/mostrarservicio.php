@@ -18,7 +18,7 @@
 							<button style="color:#005ce6;font-weight:bold" class="btn btn-default btn-block">Terminado</button>
 						</form>
 					</div>
-					
+
 					<div class="form-group">
 						<form action="<?=base_url()?>serviciofolio/cambiarEstado" method="post">
 							<input type="hidden" name="estado" value="entregado">
@@ -42,7 +42,7 @@
 					</form>
 					<form action="<?=base_url()?>serviciofolio/consultaGeneral" class="form-horizontal" name="frmServicios" id="frmServicios" method="post">
 						<div class="form-group" >
-							
+
 							<select name="lstSuc" id="lstSuc" class="form-control">
 							<?php foreach($querySuc->result() as $row){
 								if($sucSel==$row->idsuc)
@@ -50,22 +50,22 @@
 							?>
 				  				   <option selected value="<?=$row->idsuc?>"><?=$row->nombre?></option>
 				  			 <?php }
-				  				else{ 				
+				  				else{
 				  			?>
 				  				<option value="<?=$row->idsuc?>"><?=$row->nombre?></option>
-				  			<?php   } 
+				  			<?php   }
 				  				}?>
 							</select>
-							
+
 						</div>
 					</form>
 					<form method="post" action="<?=base_url()?>clientes/buscar" class="form-horizontal">
 						<div class="form-group">
-							<input type="text" name="nombre"class="form-control buscadorCliente" placeholder="Buscar cliente registrado">	
+							<input type="text" name="nombre"class="form-control buscadorCliente" placeholder="Buscar cliente registrado">
 						</div>
-					    
+
 					</form>
-		  		</div>	
+		  		</div>
 		  		<div class="col-md-4">
 		  			<h3>Estado Actual</h3>
 		  			<hr>
@@ -122,7 +122,7 @@
 		  		</div>
 		  	</div>
 		  	<table id="tablaServicio" style="position:relative;left:0px"class="table table-bordered table-hover table-condensed">
-				
+
 				<thead>
 					<TH>Nombre</TH>
 					<th>Folio</th>
@@ -146,13 +146,13 @@
 					<tr>
 						<td><div><?=$row->nombre?></div><div><button type="button" class="btn btn-info btn-xs btnVerInfoS">más datos</button></div>
 							<div  class="ocultarInfo"><label>Direccion : </label><div style="display:inline-block"><?=$row->direccion?></div> <br>
-								<label for="">Fecha :</label><div style="display:inline-block"><?=$row->fecha?></div> <br>		
-								<label for="">Solución :</label><div style="display:inline-block"><p><?=$row->solucion?></p></div> <br>	
+								<label for="">Fecha :</label><div style="display:inline-block"><?=$row->fecha?></div> <br>
+								<label for="">Solución :</label><div style="display:inline-block"><p><?=$row->solucion?></p></div> <br>
 								<label for="">Refacciones :</label><div style="display:inline-block"><?=$row->subtotal?></div> <br>
 								<label for="">Servicio :</label><div style="display:inline-block"><?=$row->total?></div> <br>
 								<label>Total:</label><div style="display:inline-block"><mark><?=$row->total+$row->subtotal?></mark></div>
 							</div>
-						</td>	
+						</td>
 						<td><?=$row->folio?></td>
 						<td><?=$row->nomEquipo?><input type="hidden" name="idServ" value="<?=$row->idServ?>"><hr><span style="color:#FF33FF;font-weight:bold;"><?=$row->emisor?></span><hr style="margin:2px"> <span style="color:#336699;font-weight:bold;"><?=$row->comentario?></span><hr><button class="btn btn-primary btn-xs btnComment" type="button"><span class="glyphicon glyphicon-comment"></span> </button></td>
 						<td><div class="ubicacion"><?=$row->ubicacion?></div><div class="fechaubicacion"style="font-weight:bold;"><?=$row->fechaubicacion?></div><div class="lugar" style="font-weight:bold;"><?=$row->lugar?></div><button style="color:#8000ff;border:2px solid #6600cc" class="btn btn-default cambiar btn-xs btn-block"><span class="glyphicon glyphicon-map-marker"></span></button></td>
@@ -197,16 +197,16 @@
 							<center><button class="btn btn-success btn-xs"><span class="glyphicon glyphicon-repeat" title="conpletar datos del servicio" ></span></button></center></form></td>
 
 							<?php }?>
-						
+
 					</tr>
 					<?php }?>
 				</tbody>
 			</table>
 
 		</div>
-		
+
 	</div>
-	
+
 <center><?=$paginacion?></center>
 </div>
 </div>
@@ -222,8 +222,8 @@
 				<input type="hidden" name="rutaEliFolio" id="rutaEliFolio" value="<?=base_url()?>serviciofolio/eliFolioAjax">
 			</form>
 
-		
-	
+
+
 
 <div class="col-md-2 col-sm-3 col-xs-4" style="top:28px;">
             <div class="list-group paneles ">
@@ -247,7 +247,7 @@
               <a href="<?=base_url()?>serviciofolio/expirados" class="list-group-item menuIzq">Ver</a>
             </div>
           </div><!--menu Lateral-->
-          
+
 <div id="modalServ" class="modal fade" data-ruta="<?=base_url()?>js/salida.js">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -261,7 +261,7 @@
       <div class="modal-footer">
       	<button type="button" id="btnAceptar" class="btn btn-danger">Eliminar</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-       
+
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -285,7 +285,7 @@
 				<label for="subtotal" class="col-md-2 control-label">Lugar</label>
 				<div class="col-md-4" >
 					<input type="text" name="lugar" id="lugar" class="form-control" value="" placeholder="Lugar">
-					
+
 				</div>
 			</div>
         </form>
@@ -295,7 +295,7 @@
       <div class="modal-footer">
       	<button type="button" id="btnProceso" class="btn btn-success">Cambiar</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-       
+
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -310,7 +310,7 @@
         <h4 id="tit_servicio" class="modal-title"></h4><div class="col-md-12" style="float:right"id="spSalida"></div>
       </div>
       <div class="modal-body">
-       	<form  id="frmServicio1" name="frmServicio1" role="form" action="<?=base_url()?>serviciofolio/modiServicioAjax" method="post">						
+       	<form  id="frmServicio1" name="frmServicio1" role="form" action="<?=base_url()?>serviciofolio/modiServicioAjax" method="post">
 			<div class="form-group">
 				<label for="tipo">Tipo</label>
 					<input type="text" name="tipo" id="tipo" class="form-control">
@@ -328,14 +328,6 @@
 					<option value="NO SE PUEDE VERIFICAR">NO SE PUEDE VERIFICAR</option>
 				</select>
 			</div>
-			<!-- <div class="form-group">
-				<label for="discos" class=" control-label ">Display en buen estado</label>
-				<select name="discos" id="discos" class="form-control">
-					<option value="SI">SI</option>
-					<option value="NO">NO</option>
-					<option value="NO SE PUEDE VERIFICAR">No se puede verificar</option>
-				</select>
-			</div> -->
 			<div class="form-group">
 				<label for="chip" class=" control-label ">Contiene chip?</label>
 				<select name="chip" id="chip" class="form-control">
@@ -357,26 +349,71 @@
 				<input type="text" name="cotizacion" id="cotizacion" class="form-control">
 			</div>
 			<div class="form-group">
-				<label for="accesorios" >Carcasa estado estetico</label>
-				<input type="text" name="accesorios" id="accesorios" class="form-control">
+				<label for="" >Estado de la carcasa?</label>
+				<select name="accesorios" id="accesorios" class="form-control">
+					<option value="BUENA">Buena</option>
+					<option value="DESPINTADA">Despintada</option>
+					<option value="DOBLADA">Doblada</option>
+					<option VALUE="MALTRATADA">Maltratada</option>
+				</select>
 			</div>
 			<div class="form-group">
 				<label for="calcas" >Batería en buen estado</label>
 				<select name="calcas" id="calcas" class="form-control">
 					<option value="SI">SI</option>
 					<option value="NO">NO</option>
-					<OPTION value="NO CONTIENE">NO CONTIENE</OPTION>
 					<option VALUE="NO SE PUEDE VERIFICAR">NO SE PUEDE VERIFICAR</option>
 				</select>
 			</div>
-			<!-- <div class="form-group">
-				<label for="golpes">El dispositivo enciende</label>
-				<select name="golpes" id="golpes" class="form-control">
+			<div class="form-group">
+				<label for="calcas" >Contiene Batería?</label>
+				<select name="contiene_bateria" id="contiene_bateria" class="form-control">
 					<option value="SI">SI</option>
 					<option value="NO">NO</option>
-					<option value="NO SE PUEDO VERIFICAR">No se puede verificar</option>
+					<option VALUE="NO SE PUEDE VERIFICAR">NO SE PUEDE VERIFICAR</option>
 				</select>
-			</div> -->
+			</div>
+			<div class="form-group">
+				<label for="golpes">El dispositivo enciende?</label>
+				<select name="enciende" id="enciende" class="form-control">
+					<option value="SI">SI</option>
+					<option value="NO">NO</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="" >Contiene tapa?</label>
+				<select name="tapa" id="tapa" class="form-control">
+					<option value="SI">SI</option>
+					<option value="NO">NO</option>
+					<option VALUE="MALTRATADA">Maltratada</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="" >-Estado del marco?</label>
+				<select name="tapa" id="marco" class="form-control">
+					<option value="BUENO">Bueno</option>
+					<option value="MALTRATADO">Maltratado</option>
+					<option VALUE="ROTO">Roto</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="">Botones</label>
+				<input type="text" class="form-control" name="botones" id="botones" value="">
+			</div>
+			<div class="form-group">
+				<label for="" >El equipo enciende?</label>
+				<select name="enciende" id="enciende" class="form-control">
+					<option value="SI">SI</option>
+					<option value="NO">NO</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="" >Viene mojado?</label>
+				<select name="mojado" id="mojado" class="form-control">
+					<option value="SI">SI</option>
+					<option value="NO">NO</option>
+				</select>
+			</div>
 		</form>
       </div>
       <div class="modal-footer">
@@ -453,7 +490,7 @@
 <form id="frmService" name="frmService" action="" method="">
 	<input type="hidden" name="rutaService" id="rutaService" value="<?=base_url()?>serviciofolio/getServicioAjax">
 	<input type="hidden" name="rutaEquipo" id="rutaEquipo" value="<?=base_url()?>equipos/getEquipoAjax2">
-	
+
 </form>
 <!-- Modal -->
 <div id="modalEquipo" class="modal " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -498,7 +535,7 @@
    				 <input type="text" class="form-control" id="pass" name="pass" placeholder="Introuce el Color">
   			</div>
        </form>
-      
+
       <div class="modal-footer">
       		<div id="spEquipoInfe"></div>
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
@@ -508,9 +545,9 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 </div>
-<div id="edi-cli" class="row" data-ruta="<?=base_url()?>js/clientesgeneral.js">	
+<div id="edi-cli" class="row" data-ruta="<?=base_url()?>js/clientesgeneral.js">
 	<form class="form-horizontal" id="frm-cli" rule="form" action="<?=base_url()?>clientes/modiCliAjax" method="post">
-  			<div class="panel-body">	
+  			<div class="panel-body">
   				<div class="row">
                     <div class="col-md-6">
 						<div class="form-group">
@@ -518,12 +555,12 @@
 							<div class="col-md-9">
 								<input class="form-control" type="text" name="nombre" id="nombre" placeholder=""/>
 								<input  type="hidden" name="idCli" id="idCli" />
-				
+
 								<input type="hidden" name="ruta" id="ruta" value="<?=base_url()?>clientes/rellenarAjaxCli"/>
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="direccion" class="control-label col-md-3">Dirección</label>
@@ -553,9 +590,9 @@
 				</div><!--row-->
 				<div class="row">
 					<div class="col-md-6">
-						
+
 					</div>
-					
+
 				</div><!--row-->
 				<div class="row">
 
@@ -563,7 +600,7 @@
 						<p style="color:red;text-align:center" id="mnsModi"></p>
 					</div>
 			</form>
-	
+
 </div>
 </body>
 </html>

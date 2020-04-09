@@ -1,5 +1,5 @@
 $(window).load(function () {
-	
+
 	btnEq=$('button#btnEq');
 	equipo=$("div#equipo");
 	var btnSalida=$("#btnSalidaServicio");
@@ -48,15 +48,15 @@ function comprobarPass()
 		dataType:'text',
 		success:function(resp,txt)
 		{
-	
+
 			if(resp!="1" && resp!=1)
 			{
 				$("#usuario").val(resp);
-				document.frmSalida.submit();				
+				document.frmSalida.submit();
 			}
-			else 
+			else
 				alert("verifica tu contraseña")
-			
+
 			//bandera=resp;
 		},
 		error:function(xhr,error,estado)
@@ -64,9 +64,9 @@ function comprobarPass()
 			alert(xhr+" "+error+" "+" "+estado)
 		},
 		complete:function(xhr){
-			
+
 		}
-		
+
 	});
 	return bandera;
 }
@@ -80,6 +80,11 @@ function comprobarPass()
 		document.frmServicio1.accesorios.value="";
 		document.frmServicio1.golpes.value="";
 		document.frmServicio1.calcas.value="";
+		document.frmServicio1.tapa.value="";
+		document.frmServicio1.marco.value="";
+		document.frmServicio1.contiene_bateria.value="";
+		document.frmServicio1.enciende.value="";
+		document.frmServicio1.mojado.value="";
 		modalServicio.modal("show");
 		extraerServicio();
 	})
@@ -107,7 +112,7 @@ var opts = {
   top: '2px', // Top position relative to parent in px
   left: '0px' // Left position relative to parent in px
 	};
-	
+
 	// sacar el servicio del cliente--------------------------------------------------------------
 	function extraerServicio()
 	{
@@ -135,6 +140,11 @@ var opts = {
 					document.frmServicio1.cables.value=resp[0].cables;
 					//document.frmServicio1.discos.value=resp[0].discos;
 					document.frmServicio1.accesorios.value=resp[0].accesorios;
+					document.frmServicio1.tapa.value=resp[0].tapa;
+					document.frmServicio1.contiene_bateria.value=resp[0].contiene_bateria;
+					document.frmServicio1.marco.value=resp[0].marco;
+					document.frmServicio1.mojado.value=resp[0].mojado;
+					document.frmServicio1.enciende.value=resp[0].enciende;
 					//document.frmServicio1.golpes.value=resp[0].golpes;
 					document.frmServicio1.calcas.value=resp[0].calcas;
 					document.frmServicio1.chip.value=resp[0].chip;
@@ -172,10 +182,10 @@ var opts = {
 			dataType:"text",
 			success:function(resp)
 			{
-				
+
 				switch(resp)
 				{
-					
+
 					case "0":
 						alert('Complete los datos');
 						break;
@@ -203,7 +213,7 @@ var opts = {
 				spServicio.stop();
 			}
 		});
-		
+
 	}
 // Rellenar modal equipo---------------------------------------------------------------
 	function extraerEquipo()
@@ -268,10 +278,10 @@ var opts = {
 		dataType:'text',
 		success:function(resp)
 		{
-			
+
 			switch(resp)
 			{
-				
+
 				case "0":
 					alert('Complete los datos');
 					break;
