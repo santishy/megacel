@@ -269,7 +269,9 @@ class ModelServicio extends CI_Model {
 
 		"'.$data['falla'].'","'.$data['cables'].'",	"'.$data['accesorios'].'",
 
-		"'.$data['calcas'].'","'.$data['chip'].'","'.$data['memoria'].'","'.$data['cotizacion'].'",@ban);');
+		"'.$data['calcas'].'","'.$data['chip'].'","'.$data['memoria'].'","'.$data['cotizacion'].'",
+		"'.$data['marco'].'","'.$data['tapa'].'","'.$data['enciende'].'","'.$data['mojado'].'",
+		"'.$data['botones'].'",@ban);');
 
 		//$query->next_result();
 

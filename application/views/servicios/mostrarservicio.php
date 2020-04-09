@@ -390,7 +390,7 @@
 			</div>
 			<div class="form-group">
 				<label for="" >-Estado del marco?</label>
-				<select name="tapa" id="marco" class="form-control">
+				<select name="marco" id="marco" class="form-control">
 					<option value="BUENO">Bueno</option>
 					<option value="MALTRATADO">Maltratado</option>
 					<option VALUE="ROTO">Roto</option>

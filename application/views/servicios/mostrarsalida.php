@@ -17,10 +17,10 @@
 							<td><?=$row->folio?></td>
 							<td><?=$row->tipo?></td>
 							<td><?=$row->entrego?></td>
-							<td><?=$row->falla?></td><?php 
-									$folio=$row->folio; 
+							<td><?=$row->falla?></td><?php
+									$folio=$row->folio;
 									$solucion=$row->solucion;
-									
+
 								}?>
 						</tr>
 					</tbody>
@@ -51,7 +51,7 @@
 						<td><!-- <div id="idColor"><input type="color" value=""></div>--><?=$row->color?></td>
 						<td><?=$row->contraseña?></td>
 						<?php $id=$row->idServ;?>
-					</tr><?php $idEquipo=$row->idEq; 
+					</tr><?php $idEquipo=$row->idEq;
 								$idCli=$row->idCli;
 								$nombreEquipo=$row->nomEquipo.' '.$row->marca;}?>
 				</tbody>
@@ -74,8 +74,8 @@
 						<td><?=$row->direccion?></td>
 						<td><?=$row->telefono?></td>
 					</tr><?php $idC=$row->idCli;
-								$nombreCli=$row->nombre; 
-							}?>	
+								$nombreCli=$row->nombre;
+							}?>
 				</tbody>
 			</table>
 		</div>
@@ -118,7 +118,7 @@
 					</tr>
 				</thead>
 				<tbody><form action="<?=base_url()?>refacciones/actualizar" method="post"?>
-					<?php $i=1; 
+					<?php $i=1;
 					foreach($this->cart->contents() as $items){ if($items['idServ']==$id){?>
 					<tr class="active">
 						<input type="hidden" name="<?=$i?>[rowid]" value="<?=$items['rowid']?>">
@@ -174,14 +174,14 @@
 						<input type="hidden" id="hdnFolio" name="hdnFolio" value="<?=$folio?>">
 						<input type="hidden" id="hdnEquipo" name="hdnEquipo" value="<?=$nombreEquipo?>">
 						<input type="hidden" id="hdnCli" name="hdnCli" value="<?=$nombreCli?>">
-						
+
 					</div>
 				</div>
 
-			
+
 			</div>
-	
-		
+
+
 			<div class="col-md-6">
 				<div class="form-group">
 					<label for="subtotal" class="col-md-3 control-label">Solución</label>
@@ -189,7 +189,7 @@
 						<textarea class="form-control" name="solucion" id="solucion"><?php if(isset($solucion)) echo $solucion;?></textarea>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 		<div class="row">
@@ -197,9 +197,9 @@
 				<div class="form-group">
 					<label class="col-md-3 control-label">Total Refacciones</label>
 					<div class="col-md-9">
-						<input name="refaccion" class="form-control" value="0" type="number">	
+						<input name="refaccion" class="form-control" value="0" type="number">
 					</div>
-					
+
 				</div>
 			</div>
 			<div class="col-md-6">
@@ -277,15 +277,10 @@
         <h4 id="tit_servicio" class="modal-title"></h4><div class="col-md-12" style="float:right"id="spSalida"></div>
       </div>
       <div class="modal-body">
-       	<form  id="frmServicio1" name="frmServicio1" role="form" action="<?=base_url()?>serviciofolio/modiServicioAjax" method="post">						
+       	<form  id="frmServicio1" name="frmServicio1" role="form" action="<?=base_url()?>serviciofolio/modiServicioAjax" method="post">
 			<div class="form-group">
 				<label for="tipo">Tipo</label>
-					<select name="tipo" id="tipo" class="form-control">
-						<option value="servicio">Servicio</option>
-						<option value="garantia">Garantía</option>
-						<option value="reingreso">Reingreso</option>
-						<option value="diagnostico">Diagnostico</option>
-					</select>
+					<input type="text" name="tipo" id="tipo" class="form-control">
 			</div>
 			<div class="form-group">
 				<label for="falla1" >Falla</label>
@@ -298,14 +293,6 @@
 					<option value="SI">SI</option>
 					<option value="NO">NO</option>
 					<option value="NO SE PUEDE VERIFICAR">NO SE PUEDE VERIFICAR</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label for="discos" class=" control-label ">Display en buen estado</label>
-				<select name="discos" id="discos" class="form-control">
-					<option value="SI">SI</option>
-					<option value="NO">NO</option>
-					<option value="NO SE PUEDE VERIFICAR">No se puede verificar</option>
 				</select>
 			</div>
 			<div class="form-group">
@@ -329,24 +316,69 @@
 				<input type="text" name="cotizacion" id="cotizacion" class="form-control">
 			</div>
 			<div class="form-group">
-				<label for="accesorios" >Carcasa estado estetico</label>
-				<input type="text" name="accesorios" id="accesorios" class="form-control">
+				<label for="" >Estado de la carcasa?</label>
+				<select name="accesorios" id="accesorios" class="form-control">
+					<option value="BUENA">Buena</option>
+					<option value="DESPINTADA">Despintada</option>
+					<option value="DOBLADA">Doblada</option>
+					<option VALUE="MALTRATADA">Maltratada</option>
+				</select>
 			</div>
 			<div class="form-group">
 				<label for="calcas" >Batería en buen estado</label>
 				<select name="calcas" id="calcas" class="form-control">
 					<option value="SI">SI</option>
 					<option value="NO">NO</option>
-					<OPTION value="NO CONTIENE">NO CONTIENE</OPTION>
 					<option VALUE="NO SE PUEDE VERIFICAR">NO SE PUEDE VERIFICAR</option>
 				</select>
 			</div>
 			<div class="form-group">
-				<label for="golpes">El dispositivo enciende</label>
-				<select name="golpes" id="golpes" class="form-control">
+				<label for="calcas" >Contiene Batería?</label>
+				<select name="contiene_bateria" id="contiene_bateria" class="form-control">
 					<option value="SI">SI</option>
 					<option value="NO">NO</option>
-					<option value="NO SE PUEDO VERIFICAR">No se puede verificar</option>
+					<option VALUE="NO SE PUEDE VERIFICAR">NO SE PUEDE VERIFICAR</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="golpes">El dispositivo enciende?</label>
+				<select name="enciende" id="enciende" class="form-control">
+					<option value="SI">SI</option>
+					<option value="NO">NO</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="" >Contiene tapa?</label>
+				<select name="tapa" id="tapa" class="form-control">
+					<option value="SI">SI</option>
+					<option value="NO">NO</option>
+					<option VALUE="MALTRATADA">Maltratada</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="" >-Estado del marco?</label>
+				<select name="marco" id="marco" class="form-control">
+					<option value="BUENO">Bueno</option>
+					<option value="MALTRATADO">Maltratado</option>
+					<option VALUE="ROTO">Roto</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="">Botones</label>
+				<input type="text" class="form-control" name="botones" id="botones" value="">
+			</div>
+			<div class="form-group">
+				<label for="" >El equipo enciende?</label>
+				<select name="enciende" id="enciende" class="form-control">
+					<option value="SI">SI</option>
+					<option value="NO">NO</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="" >Viene mojado?</label>
+				<select name="mojado" id="mojado" class="form-control">
+					<option value="SI">SI</option>
+					<option value="NO">NO</option>
 				</select>
 			</div>
 		</form>
@@ -359,6 +391,7 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
 
 </div>
 </body>
