@@ -24,7 +24,7 @@ function init () {
 				switch(resp.ban){
 					case '1':
 							$('#divAvisoIngreso').html("");
-							url="http://megacel.test/login/bienvenida";
+							url="http://tecno.appmegacel.com/login/bienvenida";
 							$(location).attr('href',url);
 							//error("Acceso correcto","success");
 							break;

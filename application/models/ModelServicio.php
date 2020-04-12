@@ -16,7 +16,8 @@ class ModelServicio extends CI_Model {
 
 	{
 
-	$query=$this->db->query('call addFolio('.$data['idCli'].','.$this->session->userdata('idsuc').',"'.$data['estado'].'","'.$data['fecha'].'",@ban)');
+	$query=$this->db->query('call addFolio('.$data['idCli'].','.$this->session->userdata('idsuc').',
+	"'.$data['estado'].'","'.$data['fecha'].'",@ban)');
 
 		//$query->next_result();
 
@@ -271,7 +272,7 @@ class ModelServicio extends CI_Model {
 
 		"'.$data['calcas'].'","'.$data['chip'].'","'.$data['memoria'].'","'.$data['cotizacion'].'",
 		"'.$data['marco'].'","'.$data['tapa'].'","'.$data['enciende'].'","'.$data['mojado'].'",
-		"'.$data['botones'].'",@ban);');
+		"'.$data['botones'].'","'.$data['contiene_bateria'].'",@ban);');
 
 		//$query->next_result();
 

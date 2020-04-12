@@ -125,7 +125,7 @@ class ServicioFolio extends CI_Controller {
 		require('fpdf/fpdf.php');
 		$pdf=new FPDF('P','mm',array(80,295));
 		$pdf->AddPage();
-		//$pdf->Image('img/thumbs/'.$logo.'.jpg',15,5,0,0);
+		$pdf->Image('img/thumbs/'.$logo.'.jpg',15,5,0,0);
 		$pdf->SetMargins(5,10,5);
 		$pdf->SetFont('Arial','B',8);
 		//$pdf->Ln(10);
